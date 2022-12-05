@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.util.Random;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -19,7 +20,8 @@ public class AutomationPracticeFormTest {
 
     @BeforeAll
     public static void beforeAll(){
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = "2100x1400";
+
     }
 
     @Test
@@ -30,7 +32,7 @@ public class AutomationPracticeFormTest {
         String firstName = "Ivan";
         String lastName = "Ivanov";
         String userEmail = "IvanIvanov@mail.ru";
-        String userNumber = "89997776655";
+        String userNumber = "8999777665";
         String[] subjectsInput = new String[]{"Maths", "English"};
         String currentAddress = "Random Address";
         String state = "NCR";
@@ -55,6 +57,24 @@ public class AutomationPracticeFormTest {
         $x("//div[contains(@aria-label, \"November 3rd, 1993\")]").click();
 
 
+
+
         $("#submit").click();
+
+        $(".table-responsive")
+                .$(byText("Student Name")).parent().shouldHave(text(firstName + " " + lastName));
+        $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text(userEmail));
+        $(".table-responsive").$(byText("Gender")).parent().shouldHave(text(gender));
+        $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(userNumber));
+        $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("3 November,1993"));
+        $(".table-responsive")
+                .$(byText("Subjects")).parent().shouldHave(text(subjectsInput[0] + ", "+ subjectsInput[1]));
+        $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text(hobbies));
+        $(".table-responsive").$(byText("Address")).parent().shouldHave(text(currentAddress));
+        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("hello.txt"));
+        $(".table-responsive")
+                .$(byText("State and City")).parent().shouldHave(text(state + " " + city));
+
+
     }
 }
