@@ -14,8 +14,8 @@ import static com.codeborne.selenide.Selenide.*;
 public class AutomationPracticeFormTest {
 
     public static String getRandomArrayValue(String[] array) {
-        int randomGender = new Random().nextInt(array.length);
-        return array[randomGender];
+        int randomValue = new Random().nextInt(array.length);
+        return array[randomValue];
     }
 
     @BeforeAll
