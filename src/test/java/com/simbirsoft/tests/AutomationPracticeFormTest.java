@@ -57,7 +57,6 @@ public class AutomationPracticeFormTest {
         $x("//div[contains(@aria-label, \"November 3rd, 1993\")]").click();
 
         $("#submit").click();
-
         $(".table-responsive")
                 .$(byText("Student Name")).parent().shouldHave(text(firstName + " " + lastName));
         $(".table-responsive").$(byText("Student Email")).parent().shouldHave(text(userEmail));
