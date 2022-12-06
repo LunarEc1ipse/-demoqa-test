@@ -56,9 +56,6 @@ public class AutomationPracticeFormTest {
         $(".react-datepicker__year-select").selectOption("1993");
         $x("//div[contains(@aria-label, \"November 3rd, 1993\")]").click();
 
-
-
-
         $("#submit").click();
 
         $(".table-responsive")
@@ -74,7 +71,5 @@ public class AutomationPracticeFormTest {
         $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("hello.txt"));
         $(".table-responsive")
                 .$(byText("State and City")).parent().shouldHave(text(state + " " + city));
-
-
     }
 }
