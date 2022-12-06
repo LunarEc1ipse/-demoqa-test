@@ -12,6 +12,16 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class AutomationPracticeFormTest {
+    public String gender = getRandomArrayValue(new String[]{"Male", "Female", "Other"});
+    public String hobbies = getRandomArrayValue(new String[]{"Sports", "Reading", "Music"});
+    public String firstName = "Ivan";
+    public String lastName = "Ivanov";
+    public String userEmail = "IvanIvanov@mail.ru";
+    public String userNumber = "8999777665";
+    public String[] subjectsInput = new String[]{"Maths", "English"};
+    public String currentAddress = "Random Address";
+    public String state = "NCR";
+    public String city = "Delhi";
 
     public static String getRandomArrayValue(String[] array) {
         int randomValue = new Random().nextInt(array.length);
@@ -21,23 +31,10 @@ public class AutomationPracticeFormTest {
     @BeforeAll
     public static void beforeAll(){
         Configuration.browserSize = "2100x1400";
-
     }
 
     @Test
     public void fillFromTest(){
-
-        String gender = getRandomArrayValue(new String[]{"Male", "Female", "Other"});
-        String hobbies = getRandomArrayValue(new String[]{"Sports", "Reading", "Music"});
-        String firstName = "Ivan";
-        String lastName = "Ivanov";
-        String userEmail = "IvanIvanov@mail.ru";
-        String userNumber = "8999777665";
-        String[] subjectsInput = new String[]{"Maths", "English"};
-        String currentAddress = "Random Address";
-        String state = "NCR";
-        String city = "Delhi";
-
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
