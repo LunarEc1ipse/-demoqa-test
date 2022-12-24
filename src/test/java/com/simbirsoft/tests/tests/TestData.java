@@ -1,4 +1,4 @@
-package com.simbirsoft.tests;
+package com.simbirsoft.tests.tests;
 
 import java.util.Random;
 

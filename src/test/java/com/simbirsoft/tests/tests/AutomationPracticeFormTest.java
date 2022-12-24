@@ -1,4 +1,4 @@
-package com.simbirsoft.tests;
+package com.simbirsoft.tests.tests;
 
 import org.junit.jupiter.api.Test;
 
@@ -7,7 +7,7 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
-import static com.simbirsoft.tests.TestData.*;
+import static com.simbirsoft.tests.tests.TestData.*;
 
 public class AutomationPracticeFormTest extends TestBase {
 
