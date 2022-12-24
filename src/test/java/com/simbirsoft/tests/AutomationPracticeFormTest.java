@@ -1,40 +1,18 @@
 package com.simbirsoft.tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.util.Random;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.simbirsoft.tests.TestData.*;
 
-public class AutomationPracticeFormTest {
-    public String gender = getRandomArrayValue(new String[]{"Male", "Female", "Other"});
-    public String hobbies = getRandomArrayValue(new String[]{"Sports", "Reading", "Music"});
-    public String firstName = "Ivan";
-    public String lastName = "Ivanov";
-    public String userEmail = "IvanIvanov@mail.ru";
-    public String userNumber = "8999777665";
-    public String[] subjectsInput = new String[]{"Maths", "English"};
-    public String currentAddress = "Random Address";
-    public String state = "NCR";
-    public String city = "Delhi";
-
-    public static String getRandomArrayValue(String[] array) {
-        int randomValue = new Random().nextInt(array.length);
-        return array[randomValue];
-    }
-
-    @BeforeAll
-    public static void beforeAll(){
-        Configuration.browserSize = "2100x1400";
-    }
+public class AutomationPracticeFormTest extends TestBase {
 
     @Test
-    public void fillFromTest(){
+    public void fillFromTest() {
         open("https://demoqa.com/automation-practice-form");
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
@@ -61,7 +39,7 @@ public class AutomationPracticeFormTest {
         $(".table-responsive").$(byText("Mobile")).parent().shouldHave(text(userNumber));
         $(".table-responsive").$(byText("Date of Birth")).parent().shouldHave(text("3 November,1993"));
         $(".table-responsive")
-                .$(byText("Subjects")).parent().shouldHave(text(subjectsInput[0] + ", "+ subjectsInput[1]));
+                .$(byText("Subjects")).parent().shouldHave(text(subjectsInput[0] + ", " + subjectsInput[1]));
         $(".table-responsive").$(byText("Hobbies")).parent().shouldHave(text(hobbies));
         $(".table-responsive").$(byText("Address")).parent().shouldHave(text(currentAddress));
         $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("hello.txt"));
