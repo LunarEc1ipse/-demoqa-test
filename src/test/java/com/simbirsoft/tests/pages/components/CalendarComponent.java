@@ -12,6 +12,5 @@ public class CalendarComponent {
         $(".react-datepicker__year-select").selectOption(year);
         $x("//div[contains(@aria-label, \""
                 + month + " " + day + "rd, " + year + "\")]").click();
-
     }
 }
