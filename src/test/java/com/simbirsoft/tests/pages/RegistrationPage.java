@@ -14,8 +14,6 @@ import static com.codeborne.selenide.Selenide.open;
 public class RegistrationPage {
 
     private final String FORM_TITLE = "Student Registration Form";
-    public CalendarComponent calendar = new CalendarComponent();
-    public StateAndCityComponent stateAndCity = new StateAndCityComponent();
     private final SelenideElement
             formTitle = $(".practice-form-wrapper"),
             firstNameInput = $("#firstName"),
@@ -26,6 +24,8 @@ public class RegistrationPage {
             uploadPicture = $("#uploadPicture"),
             addressInput = $("#currentAddress"),
             submitButton = $("#submit");
+    public CalendarComponent calendar = new CalendarComponent();
+    public StateAndCityComponent stateAndCity = new StateAndCityComponent();
 
     public void openPage() {
         open("https://demoqa.com/automation-practice-form");
@@ -124,9 +124,3 @@ public class RegistrationPage {
                 .$(byText("State and City")).parent().shouldHave(text(state + " " + city));
     }
 }
-
-
-//        $(".table-responsive").$(byText("Address")).parent().shouldHave(text(currentAddress));
-//        $(".table-responsive").$(byText("Picture")).parent().shouldHave(text("hello.txt"));
-//        $(".table-responsive")
-//        .$(byText("State and City")).parent().shouldHave(text(state + " " + city));

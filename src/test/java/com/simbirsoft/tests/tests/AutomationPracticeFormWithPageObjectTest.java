@@ -11,11 +11,6 @@ public class AutomationPracticeFormWithPageObjectTest extends TestBase {
 
     @Test
     public void fillFromTest() {
-
-//        Faker faker = new Faker();
-//        String firstName = faker.name().firstName(),
-//                lastName = faker.name().lastName(),
-//                userEmail = faker.internet().emailAddress();
         //Заполнение формы
         registrationPage.openPage();
         registrationPage.typeFirstName(firstName);
@@ -29,14 +24,14 @@ public class AutomationPracticeFormWithPageObjectTest extends TestBase {
         registrationPage.typeAddress(currentAddress);
         registrationPage.stateAndCity.SelectState(state);
         registrationPage.stateAndCity.SelectCity(city);
-        registrationPage.calendar.setDate("3", "November", "1993");
+        registrationPage.calendar.setDate(day, month, year);
         registrationPage.clickSubmit();
         //Проверка заполнения формы
         registrationPage.checkResultsUserName("Student Name", firstName + " " + lastName);
         registrationPage.checkResultsStudentEmail(userEmail);
         registrationPage.checkResultsStudentNumber(userNumber);
         registrationPage.checkResultsGender(gender);
-        registrationPage.checkResultsDateOfBirth("3", "November", "1993");
+        registrationPage.checkResultsDateOfBirth(day, month, year);
         registrationPage.checkResultsSubjects(subjects);
         registrationPage.checkResultsHobbies(hobbies);
         registrationPage.checkResultsAddress(currentAddress);
