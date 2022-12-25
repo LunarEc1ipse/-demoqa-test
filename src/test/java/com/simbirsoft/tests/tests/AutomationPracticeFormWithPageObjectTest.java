@@ -1,5 +1,6 @@
 package com.simbirsoft.tests.tests;
 
+import com.github.javafaker.Faker;
 import com.simbirsoft.tests.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +17,11 @@ public class AutomationPracticeFormWithPageObjectTest extends TestBase {
 
     @Test
     public void fillFromTest() {
+
+        Faker faker = new Faker();
+        String firstName = faker.name().firstName(),
+                lastName = faker.name().lastName(),
+                userEmail = faker.internet().emailAddress();
 
         registrationPage.openPage();
         registrationPage.typeFirstName(firstName);
